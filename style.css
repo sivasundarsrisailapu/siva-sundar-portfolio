@@ -445,6 +445,32 @@ body.dark-mode .soot-pupil {
   letter-spacing: -0.01em;
 }
 
+.hero-download-resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 50px;
+  background-color: var(--accent-blue);
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.25s var(--transition-smooth), box-shadow 0.25s var(--transition-smooth), background-color 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.25);
+}
+
+.hero-download-resume-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
+  background-color: #0052a3;
+}
+
+body.dark-mode .hero-download-resume-btn:hover {
+  background-color: #1a9cff;
+  box-shadow: 0 8px 25px rgba(0, 145, 255, 0.45);
+}
+
 .section-divider {
   border: 0;
   height: 1px;
@@ -2900,4 +2926,267 @@ body.dark-mode .project-detail-card {
   height: 1px;
   background-color: var(--divider-color);
   margin: 3rem 0;
+}
+
+/* ==========================================================================
+   Project Detail Modal Overlay Styles
+   ========================================================================== */
+
+.project-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.project-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-modal-card {
+  background-color: var(--modal-card-bg);
+  border: 1px solid var(--modal-card-border);
+  border-radius: 1.5rem;
+  padding: clamp(1.8rem, 4vw, 2.5rem);
+  width: 100%;
+  max-width: 1050px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  transform: scale(0.94) translateY(15px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-modal-overlay.active .project-modal-card {
+  transform: scale(1) translateY(0);
+}
+
+.modal-close-x {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: rgba(120, 120, 120, 0.15);
+  border: 1px solid rgba(120, 120, 120, 0.2);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.modal-close-x:hover {
+  background-color: var(--accent-blue);
+  color: #ffffff;
+  border-color: var(--accent-blue);
+  transform: scale(1.08);
+}
+
+/* Standalone Dedicated Project Page Styles (project-tadb.html & project-bgmi.html) */
+.full-project-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.project-page-nav {
+  margin-bottom: 1.5rem;
+}
+
+.project-detail-hero-banner {
+  background-color: var(--modal-card-bg);
+  border: 1px solid var(--modal-card-border);
+  border-radius: 1.5rem;
+  padding: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 2.5rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+body.dark-mode .project-detail-hero-banner {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.tadb-hero-theme {
+  border-left: 5px solid #ffc700;
+}
+
+.bgmi-hero-theme {
+  border-left: 5px solid #cc2366;
+}
+
+.project-page-headline {
+  font-family: Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: var(--text-color);
+  margin: 0.5rem 0;
+  line-height: 1.2;
+}
+
+.project-page-meta-line {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.hero-action-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.project-page-layout-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 950px) {
+  .project-page-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-media-hero-box {
+  width: 100%;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background-color: var(--modal-card-bg);
+  border: 1px solid var(--modal-card-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.tadb-media-theme {
+  min-height: 380px;
+  background: linear-gradient(135deg, #0d1b2a, #1b263b, #0f172a);
+}
+
+.tadb-logo-showcase-lg {
+  text-align: center;
+}
+
+.stat-highlight-card {
+  margin-top: 2rem;
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-big-number {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #ffc700;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.stat-big-label {
+  font-size: 0.75rem;
+  color: #e2e8f0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.project-details-content-box {
+  background-color: var(--modal-card-bg);
+  border: 1px solid var(--modal-card-border);
+  border-radius: 1.5rem;
+  padding: clamp(1.8rem, 4vw, 2.8rem);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+}
+
+body.dark-mode .project-details-content-box {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.content-heading {
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-weight: 700;
+  color: var(--text-color);
+  margin-top: 1.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.content-heading:first-child {
+  margin-top: 0;
+}
+
+.content-paragraph {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.custom-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.custom-features-list li {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 0.6rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.custom-features-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--accent-blue);
+  font-size: 0.85rem;
+}
+
+.custom-features-list li strong {
+  color: var(--text-color);
+}
+
+.project-tech-stack-row {
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  margin-top: 0.85rem;
+}
+
+.stack-chip {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  background-color: var(--badge-bg);
+  color: var(--text-color);
+  border: 1px solid var(--modal-card-border);
 }
