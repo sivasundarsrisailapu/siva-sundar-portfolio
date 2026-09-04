@@ -54,37 +54,50 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateClock, 1000);
   }
 
-  // --- Card Flip Logic ---
-  const flipCards = document.querySelectorAll('.flip-card-container');
-  flipCards.forEach(card => {
-    const watchReelBtn = card.querySelector('.watch-reel-btn');
-    const closeFlipBtn = card.querySelector('.close-flip-btn');
+  // --- Project Modal Logic & Hashtag Routing ---
+  const openModalBtns = document.querySelectorAll('.open-modal-btn');
+  const closeModalBtns = document.querySelectorAll('.close-modal-btn');
+  const modalOverlays = document.querySelectorAll('.project-modal-overlay');
 
-    if (watchReelBtn && closeFlipBtn) {
-      watchReelBtn.addEventListener('click', () => {
-        card.classList.add('flipped');
-        // If it's the BGMI card, trigger Instagram embeds processing
-        if (card.id === 'bgmi-card' && window.instgrm && window.instgrm.Embeds) {
-          window.instgrm.Embeds.process();
-        }
-      });
-
-      closeFlipBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        card.classList.remove('flipped');
-        
-        // If it's the BGMI card, stop video playback by reloading the generated iframe
-        if (card.id === 'bgmi-card') {
-          const iframe = card.querySelector('.video-wrapper iframe');
-          if (iframe) {
-            const currentSrc = iframe.src;
-            iframe.src = '';
-            setTimeout(() => {
-              iframe.src = currentSrc;
-            }, 50);
-          }
-        }
-      });
+  const openModal = (targetId) => {
+    const targetModal = document.getElementById(targetId);
+    if (targetModal) {
+      targetModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      if (targetId === 'modal-bgmi' && window.instgrm && window.instgrm.Embeds) {
+        window.instgrm.Embeds.process();
+      }
     }
+  };
+
+  const closeModal = (modal) => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  openModalBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = btn.getAttribute('data-target');
+      openModal(targetId);
+    });
   });
+
+  closeModalBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const modal = btn.closest('.project-modal-overlay');
+      if (modal) closeModal(modal);
+    });
+  });
+
+  modalOverlays.forEach(overlay => {
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeModal(overlay);
+    });
+  });
+
+  // Open modal automatically if URL hash is present (e.g. projects.html#tadb)
+  const hash = window.location.hash;
+  if (hash === '#tadb') openModal('modal-tadb');
+  if (hash === '#bgmi') openModal('modal-bgmi');
 });
