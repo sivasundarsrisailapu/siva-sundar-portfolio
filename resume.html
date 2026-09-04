@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siva Sundar Srisailapu – Resume</title>
+  <meta name="description" content="Resume of Siva Sundar Srisailapu – Data Entry Professional, Quick Learner with experience in Dockyard, TechM, and WNS." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #1a1a2e;
+      --accent: #0f3460;
+      --gold: #e2b96f;
+      --gold-light: #f5d08a;
+      --text: #1c1c2e;
+      --muted: #6b7280;
+      --bg: #f8f6f0;
+      --card: #ffffff;
+      --sidebar: #1a1a2e;
+      --sidebar-text: #e8e4d8;
+      --sidebar-muted: #a09880;
+      --border: #e5e0d5;
+      --highlight: #fef9ef;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .resume-wrapper {
+      width: 100%;
+      max-width: 960px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.18), 0 8px 30px rgba(0,0,0,0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      grid-template-rows: auto 1fr;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* HEADER */
+    .header {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, var(--primary) 0%, #0f3460 60%, #16213e 100%);
+      padding: 48px 52px 42px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(226,185,111,0.18) 0%, transparent 70%);
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: 40%;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(226,185,111,0.10) 0%, transparent 70%);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .name-block h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .name-block .tagline {
+      margin-top: 8px;
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--gold-light);
+      letter-spacing: 0.5px;
+    }
+
+    .contact-block {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: flex-end;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--sidebar-text);
+    }
+
+    .contact-item a {
+      color: var(--gold-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-item a:hover { color: #ffffff; }
+
+    /* MAIN */
+    .main {
+      background: var(--card);
+      padding: 44px 48px 52px;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      background: var(--sidebar);
+      padding: 40px 28px 52px;
+    }
+
+    /* SECTION */
+    .section { margin-bottom: 36px; }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(226,185,111,0.3);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0;
+      width: 36px; height: 2px;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+
+    .sidebar .section-title {
+      color: var(--gold);
+      border-bottom-color: rgba(226,185,111,0.2);
+    }
+
+    /* EDUCATION TABLE */
+    .edu-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .edu-table th {
+      background: var(--highlight);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+      text-align: left;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+    }
+
+    .edu-table td {
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .edu-table tr:hover td { background: var(--highlight); transition: background 0.2s; }
+
+    .edu-table .degree { font-weight: 600; }
+    .edu-table .score  { font-weight: 500; color: var(--accent); }
+
+    /* EXPERIENCE ITEMS */
+    .exp-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px dashed var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .exp-arrow {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--primary);
+      font-weight: 800;
+      margin-top: 2px;
+    }
+
+    .exp-body { flex: 1; }
+
+    .exp-role {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+
+    .exp-company {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gold);
+      background: rgba(226,185,111,0.12);
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-bottom: 6px;
+    }
+
+    .exp-period {
+      font-size: 0.73rem;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .exp-desc {
+      font-size: 0.83rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    /* PERSONAL DETAILS */
+    .personal-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px 18px;
+      font-size: 0.85rem;
+    }
+
+    .personal-label {
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .personal-value { color: var(--text); }
+
+    /* SIDEBAR SKILLS */
+    .skill-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(226,185,111,0.12);
+      border: 1px solid rgba(226,185,111,0.25);
+      color: var(--sidebar-text);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      margin: 4px 4px 0 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .skill-pill:hover {
+      background: rgba(226,185,111,0.25);
+      transform: translateY(-1px);
+    }
+    .skill-pill::before { content: '✦'; font-size: 0.6rem; color: var(--gold); }
+
+    /* SIDEBAR TEXT */
+    .sidebar-text-item {
+      font-size: 0.82rem;
+      color: var(--sidebar-text);
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .sidebar-text-item strong {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* LANGUAGES */
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 0.83rem;
+    }
+    .lang-name { color: var(--sidebar-text); font-weight: 500; }
+    .lang-level {
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      background: rgba(226,185,111,0.12);
+      padding: 2px 9px;
+      border-radius: 20px;
+      border: 1px solid rgba(226,185,111,0.2);
+    }
+
+    /* PROJECT CARD */
+    .project-card {
+      background: rgba(226,185,111,0.08);
+      border: 1px solid rgba(226,185,111,0.2);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+    .project-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+    .project-desc {
+      font-size: 0.79rem;
+      color: var(--sidebar-text);
+      line-height: 1.6;
+    }
+
+    /* DECLARATION */
+    .declaration {
+      background: var(--highlight);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      font-size: 0.83rem;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 720px) {
+      .resume-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .header { grid-column: 1; }
+      .header-inner { flex-direction: column; align-items: flex-start; }
+      .contact-block { align-items: flex-start; }
+      .main { padding: 32px 28px; }
+      .sidebar { padding: 32px 28px; }
+      .name-block h1 { font-size: 2rem; }
+    }
+
+    @media print {
+      body { padding: 0; background: white; }
+      .resume-wrapper { box-shadow: none; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="resume-wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="name-block">
+        <h1>Siva Sundar Srisailapu</h1>
+        <p class="tagline">🔥 Firefighter &nbsp;·&nbsp; Quick Learner &nbsp;·&nbsp; Data Entry Professional</p>
+      </div>
+      <div class="contact-block">
+        <div class="contact-item">📍 Doc.27-306/3, Venugunta, VSP</div>
+        <div class="contact-item">📞 <a href="tel:8328268642">8328268642</a></div>
+        <div class="contact-item">💼 <a href="https://linkedin.com/in/siva-sundar" target="_blank">linkedin.com/in/siva-sundar</a></div>
+        <div class="contact-item">✉️ <a href="mailto:Sivasundarsrisailapu2000@gmail.com">Sivasundarsrisailapu2000@gmail.com</a></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- EDUCATION -->
+    <div class="section">
+      <div class="section-title">Education</div>
+      <table class="edu-table">
+        <thead>
+          <tr>
+            <th>Degree / Grade</th>
+            <th>Institution</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="degree">Intermediate</td>
+            <td>A.P.O.S.S</td>
+            <td class="score">Marks 257/500 &nbsp;·&nbsp; 2023</td>
+          </tr>
+          <tr>
+            <td class="degree">Diploma – Mechanical Engineering</td>
+            <td>Sai Ganapathi Polytechnic, Visakhapatnam</td>
+            <td class="score">2017 – 2020</td>
+          </tr>
+          <tr>
+            <td class="degree">10th Class (SSC)</td>
+            <td>Gurus School, Visakhapatnam</td>
+            <td class="score">GPA 8.5 / 10 &nbsp;·&nbsp; 2017</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="section">
+      <div class="section-title">Experience</div>
+
+      <div class="exp-item">
+        <div class="exp-arrow">→</div>
+        <div class="exp-body">
+          <div class="exp-role">Data Entry Operator</div>
+          <span class="exp-company">Contract Base in Dockyard (VSKP)</span>
+          <div class="exp-period">2022 &nbsp;·&nbsp; 6 Months</div>
+          <div class="exp-desc">Worked for 6 months as a Data Entry Operator in the Dockyard MAT Department.</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-arrow">→</div>
+        <div class="exp-body">
+          <div class="exp-role">Associate – Primary Department</div>
+          <span class="exp-company">Contract Base in TechM</span>
+          <div class="exp-period">Jul 2024 – Dec 2024</div>
+          <div class="exp-desc">Worked for 6 months as an Associate in the primary department.</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-arrow">→</div>
+        <div class="exp-body">
+          <div class="exp-role">Associate – Estates Billing</div>
+          <span class="exp-company">WNS (VSP)</span>
+          <div class="exp-period">Feb 2025 – Oct 2025</div>
+          <div class="exp-desc">Worked as an Associate in the Estates Billing where I handled billing-related data entry documentation.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTERNSHIPS -->
+    <div class="section">
+      <div class="section-title">Internships</div>
+
+      <div class="exp-item">
+        <div class="exp-arrow">→</div>
+        <div class="exp-body">
+          <div class="exp-role">Graphic Designer & Video Editor Intern</div>
+          <span class="exp-company">SHM Technologies</span>
+          <div class="exp-period">Aug 2026 – Sep 2026 &nbsp;·&nbsp; 1 Month</div>
+          <div class="exp-desc">Attended a 1-month practical internship creating graphic design materials and editing promotional video content as part of the job evaluation process.</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-arrow">→</div>
+        <div class="exp-body">
+          <div class="exp-role">Property Valuation Intern</div>
+          <span class="exp-company">PVR Associates</span>
+          <div class="exp-period">2022</div>
+          <div class="exp-desc">Worked in updating property information and determined values for land and house.</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-arrow">→</div>
+        <div class="exp-body">
+          <div class="exp-role">Quality Checking Trainee</div>
+          <span class="exp-company">BHEL (VSKP)</span>
+          <div class="exp-period">June 2017 – November 2017 &nbsp;·&nbsp; 6 Months</div>
+          <div class="exp-desc">Took training in the Quality Checking Department for 6 months in BHEL, Visakhapatnam.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERSONAL DETAILS -->
+    <div class="section">
+      <div class="section-title">Personal Details</div>
+      <div class="personal-grid">
+        <span class="personal-label">Date of Birth</span>
+        <span class="personal-value">20 / 11 / 2000</span>
+        <span class="personal-label">Marital Status</span>
+        <span class="personal-value">Unmarried</span>
+        <span class="personal-label">Nationality</span>
+        <span class="personal-value">Indian</span>
+      </div>
+    </div>
+
+    <!-- DECLARATION -->
+    <div class="section">
+      <div class="section-title">Declaration</div>
+      <div class="declaration">
+        I hereby declare that all the above information is true to the best of my knowledge.
+      </div>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- SKILLS -->
+    <div class="section">
+      <div class="section-title">Skills</div>
+      <div>
+        <span class="skill-pill">MS Office</span>
+        <span class="skill-pill">HTML &amp; CSS</span>
+        <span class="skill-pill">Photoshop</span>
+      </div>
+    </div>
+
+    <!-- ADDITIONAL SKILLS -->
+    <div class="section">
+      <div class="section-title">Additional Skills</div>
+      <div class="sidebar-text-item">
+        <strong>Computer Skills:</strong> Proficient in MS Word, PowerPoint and familiar with Excel.
+      </div>
+      <div class="sidebar-text-item">
+        <strong>Developer Skills:</strong> Has some understanding of HTML language.
+      </div>
+      <div class="sidebar-text-item">
+        <strong>Editor Skills:</strong> Know Photoshop, After Effects (Basics), Creative Writing and Narration.
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="section">
+      <div class="section-title">Projects</div>
+      <div class="project-card">
+        <div class="project-name">✦ TADB</div>
+        <div class="project-desc">Developed a custom website featuring anime details, Telugu dub artist info and organized content updates. Handled website design, data entry and content management.</div>
+      </div>
+    </div>
+
+    <!-- LANGUAGES -->
+    <div class="section">
+      <div class="section-title">Languages</div>
+      <div class="lang-item">
+        <span class="lang-name">Telugu</span>
+        <span class="lang-level">Native</span>
+      </div>
+      <div class="lang-item">
+        <span class="lang-name">English</span>
+        <span class="lang-level">Fluent</span>
+      </div>
+    </div>
+
+  </aside>
+
+</div>
+
+</body>
+</html>
