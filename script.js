@@ -23,6 +23,28 @@
   const countFiles = (list) => list.reduce((n, f) => n + (f.type === 'folder' ? countFiles(f.files || []) : 1), 0);
   const isExternal = (href) => /^https?:\/\//.test(href);
 
+  // 'May 2026' -> sortable number; files with dates are listed newest first
+  const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+  const dateValue = (d) => {
+    const m = /^(\w{3})\w*\s+(\d{4})$/.exec(d || '');
+    return m ? Number(m[2]) * 12 + MONTHS.indexOf(m[1].toLowerCase()) : -1;
+  };
+  const sortNewest = (list) => list.every(f => f.date)
+    ? list.slice().sort((a, b) => dateValue(b.date) - dateValue(a.date))
+    : list;
+  // First few image previews inside a folder (looks into its sub-folders too)
+  const previews = (list, max) => {
+    const found = [];
+    (function walk(files) {
+      for (const f of sortNewest(files)) {
+        if (found.length >= max) return;
+        if (f.type === 'folder') walk(f.files || []);
+        else if (f.type === 'image' && f.src) found.push(f.thumb || f.src);
+      }
+    })(list);
+    return found;
+  };
+
   const ICON = {
     arrow: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>',
     image: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>',
@@ -98,29 +120,33 @@
   let viewable = [];
 
   function fileTile(f, n) {
+    // Long lists: stop the stagger after a dozen tiles so they don't trickle in
+    const order = Math.min(n, 12);
     if (f.type === 'folder') {
       const total = countFiles(f.files || []);
+      const papers = previews(f.files || [], 2)
+        .map((src, k) => `<span class="sf-paper sp${k + 1}"><img src="${esc(src)}" alt="" loading="lazy"></span>`).join('');
       return `
-        <button type="button" class="fw-file fw-subfolder" data-folder="${n}" style="--n:${n}" aria-label="Open ${esc(f.name)} folder">
-          <span class="fw-thumb fw-thumb-folder"><span class="sf-icon"><span class="sf-front"></span></span></span>
+        <button type="button" class="fw-file fw-subfolder" data-folder="${n}" style="--n:${order}" aria-label="Open ${esc(f.name)} folder">
+          <span class="fw-thumb fw-thumb-folder"><span class="sf-icon${papers ? ' has-papers' : ''}">${papers}<span class="sf-front"></span></span></span>
           <span class="fw-file-name">${esc(f.name)}</span>
           <span class="fw-file-type">${total ? `${total} ${total === 1 ? 'item' : 'items'}` : 'Empty'}</span>
         </button>`;
     }
     const type = ICON[f.type] ? f.type : 'image';
     const thumb = type === 'image' && f.src
-      ? `<img src="${esc(f.src)}" alt="" loading="lazy">`
+      ? `<img src="${esc(f.thumb || f.src)}" alt="" loading="lazy" decoding="async">`
       : ICON[type];
     const inner = `
-      <span class="fw-thumb fw-thumb-${type}">${thumb}</span>
-      <span class="fw-file-name">${esc(f.name)}</span>
-      <span class="fw-file-type">${f.src ? esc(type) : 'Coming soon'}</span>`;
-    if (!f.src) return `<div class="fw-file is-empty" style="--n:${n}">${inner}</div>`;
+      <span class="fw-thumb fw-thumb-${type}${f.thumb ? ' is-design' : ''}">${thumb}</span>
+      <span class="fw-file-name" title="${esc(f.name)}">${esc(f.name)}</span>
+      <span class="fw-file-type">${f.src ? esc(f.date || type) : 'Coming soon'}</span>`;
+    if (!f.src) return `<div class="fw-file is-empty" style="--n:${order}">${inner}</div>`;
     if (type === 'image' || type === 'video') {
       viewable.push(f);
-      return `<button type="button" class="fw-file" data-view="${viewable.length - 1}" style="--n:${n}" aria-label="View ${esc(f.name)}">${inner}</button>`;
+      return `<button type="button" class="fw-file" data-view="${viewable.length - 1}" style="--n:${order}" aria-label="View ${esc(f.name)}">${inner}</button>`;
     }
-    return `<a class="fw-file" href="${esc(f.src)}" style="--n:${n}"${isExternal(f.src) ? ' target="_blank" rel="noopener"' : ''}>${inner}</a>`;
+    return `<a class="fw-file" href="${esc(f.src)}" style="--n:${order}"${isExternal(f.src) ? ' target="_blank" rel="noopener"' : ''}>${inner}</a>`;
   }
 
   // Sub-folders: filesPath is the stack of folders opened inside the Files area
@@ -131,10 +157,19 @@
     const section = body.querySelector('.fw-files-section');
     if (!section) return;
     const open = filesPath[filesPath.length - 1];
-    currentList = open ? (open.files || []) : (projects[current].files || []);
+    currentList = sortNewest(open ? (open.files || []) : (projects[current].files || []));
     viewable = [];
 
     const total = countFiles(currentList);
+    // "Aug 2025 – Aug 2026" span of the dated files in this folder
+    const dates = currentList.filter(f => f.date).map(f => f.date)
+      .sort((a, b) => dateValue(a) - dateValue(b));
+    const span = dates.length
+      ? [dates[0], dates[dates.length - 1]].filter((d, k, a) => k === 0 || d !== a[0]).join(' – ')
+      : '';
+    const about = open && (open.desc || span)
+      ? `<p class="fw-folder-desc">${esc(open.desc || '')}${span ? `<span>${esc(span)}</span>` : ''}</p>`
+      : '';
     const title = filesPath.length
       ? ['<button type="button" class="fw-crumb" data-crumb="0">Files</button>']
         .concat(filesPath.map((f, n) => n === filesPath.length - 1
@@ -148,6 +183,7 @@
         ${filesPath.length ? `<button type="button" class="fw-back" aria-label="Back"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>` : ''}
         <h4>${title} <span>${total} ${total === 1 ? 'item' : 'items'}</span></h4>
       </div>
+      ${about}
       ${currentList.length
         ? `<div class="fw-files">${currentList.map(fileTile).join('')}</div>`
         : '<div class="fw-empty">Nothing here yet. Coming soon.</div>'}`;
@@ -182,7 +218,7 @@
     const media = f.type === 'video'
       ? `<video src="${esc(f.src)}" controls autoplay playsinline></video>`
       : `<img src="${esc(f.src)}" alt="${esc(f.name)}">`;
-    stage.innerHTML = `${media}<figcaption>${esc(f.name)}<span>${viewIndex + 1} / ${viewable.length}</span></figcaption>`;
+    stage.innerHTML = `${media}<figcaption>${esc(f.name)}<span>${f.date ? `${esc(f.date)} · ` : ''}${viewIndex + 1} / ${viewable.length}</span></figcaption>`;
     viewer.classList.toggle('single', viewable.length < 2);
     viewer.classList.add('open');
     viewer.setAttribute('aria-hidden', 'false');
