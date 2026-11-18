@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telugu Anime Database (TADB) - Project Story & Case Study</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    /* Integrated Light Warm Portfolio Theme */
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .case-study-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 120px 24px 80px 24px;
+    }
+
+    .back-btn-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.9rem;
+      padding: 10px 22px;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 999px;
+      margin-bottom: 36px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+      transition: all 0.25s ease;
+    }
+
+    .back-btn-pill:hover {
+      background-color: var(--accent-orange);
+      border-color: var(--accent-orange);
+      color: #161412;
+      transform: translateX(-4px);
+    }
+
+    .article-header {
+      margin-bottom: 48px;
+    }
+
+    .project-category-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(212, 225, 30, 0.18);
+      color: #161412;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    body.dark-mode .project-category-badge {
+      color: var(--accent-orange);
+    }
+
+    .article-title {
+      font-size: 3.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--text-main);
+      margin-bottom: 20px;
+    }
+
+    .article-lead {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      font-weight: 500;
+      border-left: 4px solid var(--accent-orange);
+      padding-left: 20px;
+      margin-bottom: 40px;
+    }
+
+    /* Stat Highlights Card Banner */
+    .stats-banner-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 56px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+    }
+
+    .stat-banner-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .stat-banner-num {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-banner-label {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Paragraph Story Content */
+    .story-content {
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: var(--text-main);
+    }
+
+    .story-content h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 48px 0 20px 0;
+      color: var(--text-main);
+    }
+
+    .story-content p {
+      margin-bottom: 24px;
+      color: var(--text-muted);
+    }
+
+    .story-content strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    .story-callout-box {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 32px;
+      margin: 40px 0;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .callout-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-main);
+    }
+
+    .callout-desc {
+      font-size: 1.02rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin: 0 !important;
+    }
+
+    .playstore-launch-card {
+      background-color: var(--card-bg);
+      border: 2px solid var(--accent-orange);
+      border-radius: 24px;
+      padding: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin: 50px 0;
+      box-shadow: 0 12px 32px rgba(212, 225, 30, 0.15);
+      flex-wrap: wrap;
+    }
+
+    .playstore-info h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .playstore-info p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .official-play-btn {
+      background-color: #00875A;
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 14px 30px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 20px rgba(0, 135, 90, 0.3);
+      transition: all 0.25s ease;
+    }
+
+    .official-play-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 135, 90, 0.45);
+      background-color: #00A06B;
+    }
+
+    @media (max-width: 768px) {
+      .article-title { font-size: 2.3rem; }
+      .stats-banner-card { grid-template-columns: 1fr; gap: 20px; text-align: center; }
+      .playstore-launch-card { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Navigation Bar -->
+  <header class="navbar-wrapper">
+    <nav class="navbar">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-badge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <rect x="5.5" y="4" width="9" height="9" rx="1.5" transform="rotate(15 10 8.5)" fill="#161412"/>
+            <rect x="9.5" y="11" width="9" height="9" rx="1.5" transform="rotate(15 14 15.5)" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <span class="brand-name">Siva Sundar.</span>
+      </a>
+
+      <ul class="nav-links">
+        <li>
+          <a href="index.html" class="nav-item">
+            <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span class="nav-text">Back to Home</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Case Study Content -->
+  <main class="case-study-container">
+    
+    <a href="index.html#projects" class="back-btn-pill">
+      ← Back to Portfolio
+    </a>
+
+    <header class="article-header">
+      <div class="project-category-badge">
+        <span>🚀 Flagship Project & Creator Journey</span>
+      </div>
+      
+      <h1 class="article-title">Telugu Anime Database (TADB)</h1>
+      
+      <p class="article-lead">
+        The story of how a self-driven passion project evolved from a simple 2025 Blogger website into a full AI-assisted custom Web App, and ultimately into an official Native Android Application published on Google Play Store with 1,000+ active users.
+      </p>
+    </header>
+
+    <!-- Key Stats Highlights -->
+    <div class="stats-banner-card">
+      <div class="stat-banner-item">
+        <div class="stat-banner-num">1,000+</div>
+        <div class="stat-banner-label">Active App Downloads</div>
+      </div>
+      <div class="stat-banner-item">
+        <div class="stat-banner-num">4.9 ★</div>
+        <div class="stat-banner-label">Google Play Rating</div>
+      </div>
+      <div class="stat-banner-item">
+        <div class="stat-banner-num">83+</div>
+        <div class="stat-banner-label">Verified Reviews</div>
+      </div>
+    </div>
+
+    <!-- Article Narrative Story -->
+    <article class="story-content">
+      
+      <h2>1. The Beginning in 2025 — Starting with Blogger</h2>
+      <p>
+        In 2025, I noticed a huge gap in the Telugu anime community. Anime fans in Andhra Pradesh & Telangana were searching for reliable information about Telugu dubbed anime releases, official streaming platforms, and dubbing voice artists, but there was no dedicated hub available.
+      </p>
+      <p>
+        To solve this, I launched the very first version of <strong>Telugu Anime Database (TADB)</strong> using Blogger. It started as a simple, well-structured blog where I published anime schedules, dubbing artist profiles, and release news. The response was immediate — anime enthusiasts across Telugu states started visiting daily, creating a passionate organic community.
+      </p>
+
+      <h2>2. Evolution into a Custom Web App with AI Support</h2>
+      <p>
+        As the user traffic grew rapidly, a basic blog template was no longer enough to support advanced features like user ratings, search filters, and instant updates. I decided to build a full custom Web Application (TADB V5).
+      </p>
+      <p>
+        Leveraging modern <strong>AI coding assistance</strong>, I designed and developed a fast, modern web frontend paired with custom backend services. We implemented <strong>Cloudflare Workers</strong> for lightning-fast serverless API endpoints and integrated <strong>Firebase Authentication & Firestore Database</strong> to allow users to save their favorite anime, leave reviews, and track upcoming release schedules seamlessly.
+      </p>
+
+      <div class="story-callout-box">
+        <div class="callout-title">
+          <span>💡</span> Technical Milestone: AI-Powered Development
+        </div>
+        <p class="callout-desc">
+          By combining design expertise with AI coding tools, I built custom JavaScript bridges, responsive UI layouts, and automated backend databases without relying on expensive third-party platforms.
+        </p>
+      </div>
+
+      <h2>3. Building the Native Android App & Play Store Release</h2>
+      <p>
+        With thousands of web visitors requesting a dedicated mobile experience, I took the next big step — bringing TADB to mobile devices. I developed the official Android Application using <strong>Kotlin</strong> and Android Studio, wrapping the web core into an optimized <strong>Native Android WebView architecture</strong>.
+      </p>
+      <p>
+        To ensure a true native app feel, I engineered a custom <strong>JavaScript-to-Native Android Bridge</strong>. This enabled one-tap Native Google Sign-In bottom sheets, Google AdMob monetization, offline caching, and responsive back-button handling.
+      </p>
+
+      <!-- Official Play Store Banner Callout -->
+      <div class="playstore-launch-card">
+        <div class="playstore-info">
+          <h3>Published on Google Play Store</h3>
+          <p>TADB App is available live for Android devices with over 1,000+ active installs and 4.9★ reviews.</p>
+        </div>
+        <a href="https://play.google.com/store/apps/details?id=com.example.tadb" target="_blank" class="official-play-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3.609 1.814L13.792 12 3.61 22.186a1.986 1.986 0 0 1-.61-1.428V3.242c0-.54.214-1.03.609-1.428zM15.206 13.414l2.766 2.766-12.87 7.43a1.97 1.97 0 0 1-.806.172l10.91-10.368zm0-2.828L4.296.218a1.97 1.97 0 0 1 .806.172l12.87 7.43-2.766 2.766zM16.62 12l2.766-2.766 3.197 1.846c.712.411.712 1.429 0 1.84L19.386 14.766 16.62 12z"/>
+          </svg>
+          View on Play Store
+        </a>
+      </div>
+
+      <h2>4. Impact & Community Achievement</h2>
+      <p>
+        Today, <strong>Telugu Anime Database (TADB)</strong> stands as the #1 dedicated anime platform for Telugu anime fans. Reaching over <strong>1,000+ active Play Store downloads</strong> with an overwhelming <strong>4.9★ rating</strong> from 83+ reviews is proof of the platform's value and impact.
+      </p>
+      <p>
+        From a simple Blogger setup in 2025 to a fully featured Play Store app, TADB reflects my passion for UI/UX design, full-stack product building, community management, and problem-solving.
+      </p>
+
+    </article>
+
+  </main>
+
+  <!-- Footer Credit -->
+  <footer class="footer-bottom-bar">
+    <div class="footer-bottom-container">
+      <div class="footer-brand-badge">
+        <div class="logo-badge mini-logo">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <rect x="5.5" y="4" width="9" height="9" rx="1.5" transform="rotate(15 10 8.5)" fill="#161412"/>
+            <rect x="9.5" y="11" width="9" height="9" rx="1.5" transform="rotate(15 14 15.5)" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <span class="footer-brand-name">Siva Sundar</span>
+      </div>
+
+      <p class="copyright-text">
+        Telugu Anime Database (TADB) Case Study Story © 2026 <span class="highlight-orange-text">Siva Sundar.</span>
+      </p>
+
+      <div class="footer-tag-pill">
+        <span>Visakhapatnam, India</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
