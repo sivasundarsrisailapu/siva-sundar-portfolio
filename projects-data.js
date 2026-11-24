@@ -221,6 +221,35 @@ window.PROJECTS = [
     link: { label: 'Visit Website', href: 'https://andhra-anime-club.pages.dev/' }
   },
   {
+    client: 'Udaya',
+    tab: 'Udaya',
+    title: 'Udaya: Money & Plans App',
+    category: 'Web App (PWA)',
+    year: '2026',
+    status: 'Ongoing',
+    role: 'Designer & Builder (built with AI)',
+    // Udaya's deep blue with a cream sunrise mark
+    theme: { front: '#2E5BD6', back: '#002E8A', ink: '#FFFFFF', inkSoft: 'rgba(255, 255, 255, 0.72)', chip: '#F6F1E6', chipInk: '#002E8A' },
+    accent: ['#3B6FE8', '#002E8A'],
+    logo: 'work/udaya/logo.png',
+    tools: ['AI Tools', 'Firebase', 'HTML / CSS / JS', 'Photoshop'],
+    summary: 'A personal money and daily-plans app I designed and built with AI tools. Udaya means "sunrise" in Telugu, so the app greets you by the time of day and helps you start every day in balance: income, expenses, budgets, subscriptions, savings goals and tasks in one place.',
+    highlights: [
+      'Installable PWA that works offline, with light and dark themes',
+      'Monthly budget that tells you how much you can safely spend each day',
+      'Tracks subscriptions, bank accounts, savings goals and lend / borrow money',
+      'Google or email sign-in with PIN lock, cloud sync, CSV export and JSON backup',
+      'Custom sunrise logo, app icon and intro animation'
+    ],
+    files: [
+      { name: 'App Logo', type: 'image', src: 'work/udaya/logo.png' },
+      { name: 'App Icon', type: 'image', src: 'work/udaya/icon-512.png' },
+      { name: 'Live App', type: 'link', src: 'https://budget-72f91.web.app/' },
+      { name: 'App Screens', type: 'image' }
+    ],
+    link: { label: 'Open App', href: 'https://budget-72f91.web.app/' }
+  },
+  {
     client: 'SHM Technologies',
     tab: 'SHM',
     title: 'Social Media Creatives & Reels',
