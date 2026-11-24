@@ -239,13 +239,87 @@ window.PROJECTS = [
       'Monthly budget that tells you how much you can safely spend each day',
       'Tracks subscriptions, bank accounts, savings goals and lend / borrow money',
       'Google or email sign-in with PIN lock, cloud sync, CSV export and JSON backup',
-      'Custom sunrise logo, app icon and intro animation'
+      'Custom sunrise logo, app icon and intro animation',
+      '44 full-page UI screens captured across light / dark and phone / desktop'
     ],
     files: [
+      {
+        name: 'App Screens', type: 'folder',
+        desc: 'Full-page screenshots of every screen in Udaya, in light and dark mode, on phone and desktop.',
+        files: [
+          {
+            name: 'Mobile: Light', type: 'folder',
+            desc: 'Phone layout with the bottom tab bar and quick-add button, light theme.',
+            files: [
+              { name: 'Sign in', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-mobile-signin.jpg', thumb: 'work/udaya/screens/thumbs/light-mobile-signin.jpg' },
+              { name: 'Home', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-mobile-home.jpg', thumb: 'work/udaya/screens/thumbs/light-mobile-home.jpg' },
+              { name: 'Money: Overview', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-mobile-money.jpg', thumb: 'work/udaya/screens/thumbs/light-mobile-money.jpg' },
+              { name: 'Money: Budget', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-mobile-money-budget.jpg', thumb: 'work/udaya/screens/thumbs/light-mobile-money-budget.jpg' },
+              { name: 'Money: Savings Goals', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-mobile-money-goals.jpg', thumb: 'work/udaya/screens/thumbs/light-mobile-money-goals.jpg' },
+              { name: 'Money: Lend / Borrow', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-mobile-money-debts.jpg', thumb: 'work/udaya/screens/thumbs/light-mobile-money-debts.jpg' },
+              { name: 'Money: Bank Accounts', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-mobile-money-accounts.jpg', thumb: 'work/udaya/screens/thumbs/light-mobile-money-accounts.jpg' },
+              { name: 'Dashboard', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-mobile-dash.jpg', thumb: 'work/udaya/screens/thumbs/light-mobile-dash.jpg' },
+              { name: 'Subscriptions', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-mobile-subs.jpg', thumb: 'work/udaya/screens/thumbs/light-mobile-subs.jpg' },
+              { name: 'Plans & Tasks', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-mobile-plans.jpg', thumb: 'work/udaya/screens/thumbs/light-mobile-plans.jpg' },
+              { name: 'Profile & Backup', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-mobile-safe.jpg', thumb: 'work/udaya/screens/thumbs/light-mobile-safe.jpg' }
+            ]
+          },
+          {
+            name: 'Mobile: Dark', type: 'folder',
+            desc: 'The same phone screens in dark mode.',
+            files: [
+              { name: 'Sign in', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-mobile-signin.jpg', thumb: 'work/udaya/screens/thumbs/dark-mobile-signin.jpg' },
+              { name: 'Home', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-mobile-home.jpg', thumb: 'work/udaya/screens/thumbs/dark-mobile-home.jpg' },
+              { name: 'Money: Overview', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-mobile-money.jpg', thumb: 'work/udaya/screens/thumbs/dark-mobile-money.jpg' },
+              { name: 'Money: Budget', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-mobile-money-budget.jpg', thumb: 'work/udaya/screens/thumbs/dark-mobile-money-budget.jpg' },
+              { name: 'Money: Savings Goals', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-mobile-money-goals.jpg', thumb: 'work/udaya/screens/thumbs/dark-mobile-money-goals.jpg' },
+              { name: 'Money: Lend / Borrow', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-mobile-money-debts.jpg', thumb: 'work/udaya/screens/thumbs/dark-mobile-money-debts.jpg' },
+              { name: 'Money: Bank Accounts', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-mobile-money-accounts.jpg', thumb: 'work/udaya/screens/thumbs/dark-mobile-money-accounts.jpg' },
+              { name: 'Dashboard', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-mobile-dash.jpg', thumb: 'work/udaya/screens/thumbs/dark-mobile-dash.jpg' },
+              { name: 'Subscriptions', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-mobile-subs.jpg', thumb: 'work/udaya/screens/thumbs/dark-mobile-subs.jpg' },
+              { name: 'Plans & Tasks', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-mobile-plans.jpg', thumb: 'work/udaya/screens/thumbs/dark-mobile-plans.jpg' },
+              { name: 'Profile & Backup', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-mobile-safe.jpg', thumb: 'work/udaya/screens/thumbs/dark-mobile-safe.jpg' }
+            ]
+          },
+          {
+            name: 'Desktop: Light', type: 'folder',
+            desc: 'Wide layout with the side navigation, light theme.',
+            files: [
+              { name: 'Sign in', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-desktop-signin.jpg', thumb: 'work/udaya/screens/thumbs/light-desktop-signin.jpg' },
+              { name: 'Home', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-desktop-home.jpg', thumb: 'work/udaya/screens/thumbs/light-desktop-home.jpg' },
+              { name: 'Money: Overview', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-desktop-money.jpg', thumb: 'work/udaya/screens/thumbs/light-desktop-money.jpg' },
+              { name: 'Money: Budget', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-desktop-money-budget.jpg', thumb: 'work/udaya/screens/thumbs/light-desktop-money-budget.jpg' },
+              { name: 'Money: Savings Goals', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-desktop-money-goals.jpg', thumb: 'work/udaya/screens/thumbs/light-desktop-money-goals.jpg' },
+              { name: 'Money: Lend / Borrow', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-desktop-money-debts.jpg', thumb: 'work/udaya/screens/thumbs/light-desktop-money-debts.jpg' },
+              { name: 'Money: Bank Accounts', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-desktop-money-accounts.jpg', thumb: 'work/udaya/screens/thumbs/light-desktop-money-accounts.jpg' },
+              { name: 'Dashboard', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-desktop-dash.jpg', thumb: 'work/udaya/screens/thumbs/light-desktop-dash.jpg' },
+              { name: 'Subscriptions', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-desktop-subs.jpg', thumb: 'work/udaya/screens/thumbs/light-desktop-subs.jpg' },
+              { name: 'Plans & Tasks', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-desktop-plans.jpg', thumb: 'work/udaya/screens/thumbs/light-desktop-plans.jpg' },
+              { name: 'Profile & Backup', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/light-desktop-safe.jpg', thumb: 'work/udaya/screens/thumbs/light-desktop-safe.jpg' }
+            ]
+          },
+          {
+            name: 'Desktop: Dark', type: 'folder',
+            desc: 'Wide layout in dark mode.',
+            files: [
+              { name: 'Sign in', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-desktop-signin.jpg', thumb: 'work/udaya/screens/thumbs/dark-desktop-signin.jpg' },
+              { name: 'Home', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-desktop-home.jpg', thumb: 'work/udaya/screens/thumbs/dark-desktop-home.jpg' },
+              { name: 'Money: Overview', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-desktop-money.jpg', thumb: 'work/udaya/screens/thumbs/dark-desktop-money.jpg' },
+              { name: 'Money: Budget', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-desktop-money-budget.jpg', thumb: 'work/udaya/screens/thumbs/dark-desktop-money-budget.jpg' },
+              { name: 'Money: Savings Goals', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-desktop-money-goals.jpg', thumb: 'work/udaya/screens/thumbs/dark-desktop-money-goals.jpg' },
+              { name: 'Money: Lend / Borrow', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-desktop-money-debts.jpg', thumb: 'work/udaya/screens/thumbs/dark-desktop-money-debts.jpg' },
+              { name: 'Money: Bank Accounts', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-desktop-money-accounts.jpg', thumb: 'work/udaya/screens/thumbs/dark-desktop-money-accounts.jpg' },
+              { name: 'Dashboard', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-desktop-dash.jpg', thumb: 'work/udaya/screens/thumbs/dark-desktop-dash.jpg' },
+              { name: 'Subscriptions', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-desktop-subs.jpg', thumb: 'work/udaya/screens/thumbs/dark-desktop-subs.jpg' },
+              { name: 'Plans & Tasks', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-desktop-plans.jpg', thumb: 'work/udaya/screens/thumbs/dark-desktop-plans.jpg' },
+              { name: 'Profile & Backup', type: 'image', date: 'Nov 2026', src: 'work/udaya/screens/dark-desktop-safe.jpg', thumb: 'work/udaya/screens/thumbs/dark-desktop-safe.jpg' }
+            ]
+          }
+        ]
+      },
       { name: 'App Logo', type: 'image', src: 'work/udaya/logo.png' },
       { name: 'App Icon', type: 'image', src: 'work/udaya/icon-512.png' },
-      { name: 'Live App', type: 'link', src: 'https://budget-72f91.web.app/' },
-      { name: 'App Screens', type: 'image' }
+      { name: 'Live App', type: 'link', src: 'https://budget-72f91.web.app/' }
     ],
     link: { label: 'Open App', href: 'https://budget-72f91.web.app/' }
   },
